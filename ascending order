@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main(void)
+// C code that gets 3 numbers from the user and prints them in ascending order using if statements
+  
+  
+ {
+   int n1, n2, n3;
+   printf(" Please enter three integers:");
+   scanf (" %d %d %d",&n1, &n2, &n3);
+   
+
+      if (n3 > n2 && n3 >n1 && n2 > n1)
+          printf ("%d,%d,%d", n1,n2,n3);
+       if (n2 > n1 && n2 >n3 && n3 > n1)  
+          printf ("%d,%d,%d",n1,n3,n2);
+       if (n2 > n1 &&  n2 >n3 && n1 > n3)    
+          printf ("%d,%d,%d",n3,n1,n2);
+       if (n3 > n2 &&  n3 >n1 && n1 > n2) 
+          printf("%d,%d,%d",n2,n1,n3);
+       if (n1 > n2 &&  n1 >n3 && n2 > n3)
+          printf ("%d,%d,%d",n3,n2,n1);
+       if (n1 > n2 &&  n1 >n2 && n3 > n2)
+          printf ("%d,%d,%d",n2,n3,n1);
+
+
+
+
+
+
+     return 0;
+  }   
