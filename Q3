@@ -1,0 +1,230 @@
+/*3-	Array Manipulation
+A code capable of doing array manipulation. 
+Your program will have the following menu. 
+This code should be completely modular so that for each of the menu options (except for probably a couple of them) a function should be called.  */
+
+
+#include <stdio.h>
+
+
+void swap(float* a, float* b)//swap function 
+{
+float temp;
+temp = *a;
+*a = *b;
+*b = temp;
+
+}
+
+void sortArray(float* ar, float size)
+{
+  int i,j;
+for   (i = 0  ; i < size - 1  ; i = i + 1 )
+    for (j = i + 1  ; j < size;   j = j + 1)//sorting ascending
+     
+      if (ar[i] > ar[j])
+        {
+          swap(&ar[i], &ar[j]);
+        }
+}
+
+void sortArrayDec (float* ar, int size)
+{
+  int i,j;
+for   (i = 0  ; i < size - 1  ; i = i + 1 )
+    for (j = i + 1  ; j < size;   j = j + 1)//sorting Descending
+     
+      if (ar[i] < ar[j])
+        {
+          swap(&ar[i], &ar[j]);
+        }
+}
+
+
+
+
+void printArray(float* ar, float size ) //print function
+{
+  int i;
+  for (i = 0 ; i < size ; i = i + 1)
+    printf("%0.1f ", ar[i]);
+   
+}
+
+
+
+void search(float *ar,int size,float key) //search function
+{
+int i;
+int flag=0;
+
+    for(i=0; i<size; i = i+1)
+    {
+        if(ar[i]==key)
+        {
+          flag =1;
+           printf("\n  %0.1f was found at Position %d in the array\n ", key, i +1);
+        }
+    }
+    if (!flag )
+        {
+          printf("\n %0.1f was not found in the array \n", key);          
+        }
+   
+}
+   
+ 
+void rvereseArray(float *ar, int size) //Function to reverse arr[] from start to end
+{
+  int i;
+   for(i = size-1; i>=0; i=i-1)
+    {
+        printf("%0.1f ", ar[i]);
+    }
+   }          
+     
+ void printMenu() //print Menu
+  {
+    printf("\n 1 - Enter the size of the array\n 2 - Enter the array elements\n 3 - Sort the array\n 4 - Find a number within the array\n 5 - Print the array\n 6 - Reverse print the array\n 7 - Quit\n Please enter your choice: ");
+  }
+
+
+
+int main()
+{
+  int number,size, n,i, s,key,c;
+  char k;
+  float ar[size];
+  int m = sizeof(ar) / sizeof(ar[0]);
+  int ValidOperation =0;
+   do
+   {
+   printMenu();
+   scanf("%d",&number);
+
+          switch(number)
+           {
+              case 0:
+                 printf("That's not a valid choice\n");
+                 break;
+              case 1:
+                 do
+                  {
+                     printf("\nWhat is the size of your array (1-20)?\n");
+                     scanf("%d", &size);
+                       if  (size >=1 && size <=20)
+                          {
+                             printf("\nArray size set\n\n");
+                             ValidOperation=1;
+                             break;
+                          }
+                      else 
+                          {
+                            printf("Array size should be between 1 and 20\n");
+                            ValidOperation = 0;
+                          }    
+                  }                   
+                   while ( ValidOperation ==0);              
+                   break;
+              case 2:
+                 if (ValidOperation == 1)
+                    {
+                        for(i=0; i<size; i = i+1)
+                            {
+                                printf("Enter array element %d: ",i+1);
+                                scanf("%f", &ar[i]);
+                            }
+                       printf("\nArray elements have been received\n\n"); 
+                       ValidOperation = 2;
+                    }
+       
+                 else 
+                   {
+                        printf("\nYou should first set the size of the array\n");
+                   }     
+                 break;
+             case 3:
+                   
+                   if (ValidOperation == 2)
+                      {
+                      do{  
+                        printf("\nSorting the array. Please choose Ascending/Descending (A/D)?");
+                        scanf("%s", &k);
+                           if (k == 'A')
+                           {
+                              sortArray (ar, size);
+                              printf("Array sorted (Ascending)\n");
+                              printArray(ar,size);
+                           }
+                          else if (k == 'D')
+                          {
+                              sortArrayDec (ar, size);
+                              printf("Array sorted (Descending)\n");
+                              printArray(ar, size);
+                          }  
+                          else 
+                          {
+                              printf("That’s not a valid choice\n ");
+                          }
+                      }  
+                   
+                         while (k != 'A' && k !='D');      
+                      }   
+                else 
+                       {
+                           printf("Your array is not initialized yet!\n ");
+                       }
+                                                 
+             
+                         break;
+             case 4:
+                 if (ValidOperation == 2)
+                    {
+                        printf("Please enter a number to be searched in the array: ");
+                        scanf("%d", &key);
+                        search (ar, size,key);      
+                    }
+                else
+                    {
+                       printf("You array is not initilized\n"); 
+                    }
+                break;
+              case 5:
+                  if (ValidOperation == 2)
+                   {
+                      printf("Printing the array\n");
+                      printArray(ar, size);
+                   }        
+                 else
+                  {
+                      printf("You array is not initilized\n"); 
+                  }
+                 break;
+
+               case 6: 
+                 if (ValidOperation == 2)
+                    {
+                       printf("Reverse printing the array\n ");
+                       rvereseArray(ar, size); 
+                    }
+                else
+                    {
+                       printf("You array is not initilized\n"); 
+                    }
+               break;
+               
+               case 7: 
+                    break;
+
+            default :
+               {
+                  printf("That's not a valid choice\n");
+                  ValidOperation = 0; 
+               }
+           }
+} while (number!=7);
+     printf("Thanks and bye!\n");
+     return 0;
+}
+
+
