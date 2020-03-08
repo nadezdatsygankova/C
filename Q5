@@ -109,17 +109,23 @@ int main()
 
      k = strncmp(str,str1,100);
         if (k == 0)
-           printf("Yes! ""%s"" and ""%s"" are anagrams. ", oldStr,oldStr1);
+           printf("Yes! \"%s\" and \"%s\" are anagrams. ", oldStr,oldStr1);
         else
-           printf("Sorry! ""%s"" and ""%s"" are not anagrams.",oldStr,oldStr1);
+           printf("Sorry! \"%s\" and \"%s\" are not anagrams.",oldStr,oldStr1);
  
 
     }
    else 
-   printf("Sorry! ""%s"" and ""%s"" are not anagrams.",oldStr,oldStr1);
+   printf("Sorry! \"%s\" and \"%s\" are not anagrams.",oldStr,oldStr1);
   
    
   }
+
+  
+  
+
+
+
 
   
   
