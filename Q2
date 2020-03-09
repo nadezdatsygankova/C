@@ -1,12 +1,13 @@
 
+
 #include <stdio.h>
 #include <string.h>
 
 int findChar(char * str, char c)
 {
-  int i,l, count;
+  int i,l;
   l = strlen(str);
-    for (i=0;i<l;i++)
+    for (i=0;i<l;i = i+1)
        {
        if (str[i] == c)
          return i;
@@ -15,12 +16,61 @@ int findChar(char * str, char c)
          return -1;           
 
  }
-
-int replaceChar(char * str, char c1, char c2);   
+int replaceChar(char *str, char c1, char c2)
 {
-  
+    int i;
+    int count = 0;
+    int l = strlen(str);
+
+    for (i=0; i<l; i = i+1) 
+    {
+        if (str[i] == c1) 
+        {
+            str[i] = c2;
+            count = count +1;
+        }
+    return count;
+    }
+    return 0;
 }
 
+int isPalindrome(char *str)
+{
+	int length;
+	int i;
+	
+	/*calculate length*/
+	length = strlen(str);
+	 
+    for(i=0; i<length; i = i+1)
+	{
+		if((str[0+i] != str[(length-1)-i]))
+		{
+			return 0;
+			
+		}			
+	} 	
+	return 1;
+}
+
+void swap(char *a, char *b)
+{
+    char c;
+    c = *a;                
+    *a = *b;
+    *b = c;
+}
+int reverseString(char * str)
+{
+  int l,i;
+  l=strlen(str);
+    for (i=0;i<(l/2);i = i +1)
+     {
+       swap(&str[i],&str[l-i-1]);
+
+     }
+  return l;   
+}
 
 
 
@@ -29,7 +79,20 @@ int main()
 char arv[10] = "count";
 
 
-printf("Find in position %d",findChar(arv,'c'));
+   printf("Find in position %d\n",findChar(arv,'c'));
+
+   replaceChar(arv,'c', 'k');
+
+   printf("%s\n",arv);
+
+  if(isPalindrome(arv))
+		printf("%s is a palindrome string\n",arv);
+	else
+		printf("%s is not a palindrome string\n",arv);
+
+   reverseString(arv);
+	 printf("The word reversed is: %s  \n", arv);
+   printf("\nthe number of characters in that string: %d", reverseString(arv));
 
 return 0;
 
