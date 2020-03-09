@@ -1,3 +1,5 @@
+/* Number guessing Game */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -12,67 +14,71 @@ int tr=10;
 char again;
 int valid =0;
 
-srand(time(NULL));
+srand(time(NULL));//random generator function
 int r = rand() % 100 + 1;
 
 
 do
 {
-  
+
   printf("Welcome to the Number Guess Game!\nI choose a number between 1 and 100 and you have only 10 chanced to guess it!\n\n");
 
 
-printf("OK, I made my mind!\n ");
+  printf("OK, I made my mind!\n ");
     do{
-    while(counter<10 && valid ==0)
-    {
-       
-       printf("\nWhat is your guess? > ");
-        scanf("%d", &guess);
-        if (guess<=100 &&guess>=1)
-        {
-        counter= counter+1;
-                 
+        while(counter<10 && valid ==0)
+         {
 
-        if (guess < r)
-        {
-            printf("My number is larger than %d!\n\n ", guess);
-            printf("%d guesses left.\n",tr-counter);
-        }
-        if (guess > r)
-        {
-            printf("My number is smaller than %d\n\n ",guess);
-            printf("%d guesses left.\n",tr-counter);
-        }
-        if (guess == r)
-        {
-            printf("You found it with just %d guesses!\n", counter);
-            valid = 1;
-            
-               
-        } 
-        }
-        else 
-        printf("Please enter a number between 1 and 100");    
+           printf("\nWhat is your guess? > ");
+           scanf("%d", &guess);
+             if (guess<=100 &&guess>=1) //between 1 and 100
+               {
+                  counter= counter+1;//counter guesses
 
-       
-    }
-     if (counter >=10)
-      printf("SORRY! You couldn’t find it with 10 guesses!\nMy number was %d. \nMaybe next time!", r);
-         valid =1;
-        
-}while (valid ==0);
-   {
-    printf("Do you want to play again?\n (Y/N)");
-        scanf("%s",&again);
-        counter =0;
-        tr =10;
-        valid =0;
-   }    
-             
+
+                    if (guess < r)
+                     {
+                        printf("My number is larger than %d!\n\n ", guess);
+                        printf("%d guesses left.\n",tr-counter);
+                     }
+                    if (guess > r)
+                     {
+                        printf("My number is smaller than %d\n\n ",guess);
+                        printf("%d guesses left.\n",tr-counter);
+                     }
+                    if (guess == r)
+                     {
+                       printf("You found it with just %d guesses!\n", counter);
+                       valid = 1;
+
+                     }
+               }
+             else
+                  printf("Please enter a number between 1 and 100");
+
+
+          }
+             if (counter >=10)
+                {
+
+                   printf("SORRY! You couldn’t find it with 10 guesses!\nMy number was %d. \nMaybe next time!\n", r);
+                   valid =1;
+                }
+
+       }while (valid ==0);
+            {
+               printf("Do you want to play again?\n (Y/N)");
+               scanf("%s",&again);
+               counter =0;
+               tr =10;
+               valid =0;
+            }
+
 } while (again!= 'N');
-printf("Thanks for playing! See you later");
+     printf("Thanks for playing! See you later");//Quite
+
 return 0;
- 
+
 
 }
+
