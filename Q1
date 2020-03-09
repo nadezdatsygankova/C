@@ -1,0 +1,45 @@
+/*A function  receives an integer and if the integer is larger than 1, prints out its factors*/
+
+#include<stdio.h>
+
+void printFactor (long unsigned int number)
+
+{
+
+  int k=2;
+  if (number == 1)
+        printf("1");
+  else // loop number >1
+  {
+    while (number >1)
+    {
+      if (number % k == 0)  
+      {
+          printf("%d ",k);
+          number = number /k;
+      }else k =k+1;
+    }
+  } 
+}
+
+int main ()
+
+{
+  long unsigned int i;
+  do
+  {
+    printf ("Please enter a positive integer number (0 to end): ");
+    scanf("%lu",&i);
+    if (i == 0 )//quite
+        printf("Thanks and have a good day!");
+    else
+    {
+        printf("Factors of %lu are: ",i); //print factors
+        printFactor(i);
+        printf("\n");
+    }
+  }while (i!= 0);
+ 
+  return 0;
+
+}
