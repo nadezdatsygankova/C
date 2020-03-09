@@ -81,7 +81,7 @@ int removeChar(char * str1, char * str2, char c)//copy str1 into str2 except the
   strcpy(str2,str1);
 
 
-    	for(i = 0; i<l; i++)
+    	for(i = 0; i<l; i = i+1)
 	       {
 		      if(str2[i] == c)
 	      	{
