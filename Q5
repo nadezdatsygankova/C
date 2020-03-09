@@ -1,17 +1,17 @@
-
+/* Anagram words */
 #include <stdio.h>
 #include <string.h>
 
-void sortArray(char* ar, int size)
+void sortArray(char* ar, int size)//sorting
 {
   int i,j,ch;
    for(i=1;i<size;i++)
     for(j=0;j<size-i;j++)
 	    if(ar[j]>ar[j+1])
 	    {
-	  ch=ar[j];
-	  ar[j] = ar[j+1];
-	  ar[j+1]=ch;
+	      ch=ar[j];
+	      ar[j] = ar[j+1];
+	      ar[j+1]=ch;
 	    }
 
 }
@@ -21,37 +21,36 @@ int main()
   char oldStr[100];
   char oldStr1[100];
   char str1[100];
-  int i,j,l,m,k; 
+  int i,j,l,m,k;
        printf("Please enter first word: ");
-       scanf ("%s",str);
+       scanf ("%s",str);//get first
        strncpy(oldStr,str,100);
        printf("Please enter the second word: ");
-       scanf ("%s",str1);
-       strncpy(oldStr1,str1,100);
-     
-  l=strlen(str);
-  m=strlen(str1);
-  if (l == m)
-    {
-      sortArray(str, l); /* sorting process */
-      sortArray(str1, m);
+       scanf ("%s",str1);//get second
+       strncpy(oldStr1,str1,100); //copy
 
-     k = strncmp(str,str1,100);
-        if (k == 0)
-           printf("Yes! \"%s\" and \"%s\" are anagrams. ", oldStr,oldStr1);
+       l=strlen(str);
+       m=strlen(str1);
+         if (l == m)
+          {
+             sortArray(str, l); // sorting process
+             sortArray(str1, m);
+
+            k = strncmp(str,str1,100); //compare two string
+                if (k == 0)
+                   printf("Yes! \"%s\" and \"%s\" are anagrams. ", oldStr,oldStr1);
+                else
+                  printf("Sorry! \"%s\" and \"%s\" are not anagrams.",oldStr,oldStr1);
+
+
+         }
         else
-           printf("Sorry! \"%s\" and \"%s\" are not anagrams.",oldStr,oldStr1);
- 
+              printf("Sorry! \"%s\" and \"%s\" are not anagrams.",oldStr,oldStr1);
 
-    }
-   else 
-   printf("Sorry! \"%s\" and \"%s\" are not anagrams.",oldStr,oldStr1);
-  
-   
-  }
+   return 0;
+}
 
-  
-  
+
 
 
 
