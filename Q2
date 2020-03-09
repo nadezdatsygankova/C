@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 #include <string.h>
 
@@ -72,16 +70,39 @@ int reverseString(char * str)
   return l;   
 }
 
+int removeChar(char * str1, char * str2, char c)
+{
+  int l;
+  char t = '*';
+  int i;
+ 
+
+  l = strlen(str1);
+  strcpy(str2,str1);
+ 
+
+    	for(i = 0; i<l; i++)
+	       {
+		      if(str2[i] == c)
+	      	{
+			      str2[i] = t;
+	       	}  
+	}
+
+ return 1;
+
+}
 
 
 int main()
 {
-char arv[10] = "count";
+char arv[10] = "Hello";
+char arv1[10];
 
+   
+   printf("Find in position %d\n",findChar(arv,'e'));
 
-   printf("Find in position %d\n",findChar(arv,'c'));
-
-   replaceChar(arv,'c', 'k');
+   replaceChar(arv,'e', 'o');
 
    printf("%s\n",arv);
 
@@ -92,9 +113,13 @@ char arv[10] = "count";
 
    reverseString(arv);
 	 printf("The word reversed is: %s  \n", arv);
-   printf("\nthe number of characters in that string: %d", reverseString(arv));
+   printf("\nthe number of characters in that string: %d\n", reverseString(arv));
+
+
+   removeChar(arv, arv1, 'l');
+   printf("New char:%s\n",arv1);
 
 return 0;
 
 
-}   
+}  
