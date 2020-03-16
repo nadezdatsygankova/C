@@ -1,0 +1,23 @@
+/*Repeat using a while loop*/
+/*find number in numbers*/ 
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+int number,throw;
+throw = 0;
+scanf("%d",&number);
+while (number!=1)
+{
+    scanf("%d",&number);
+    throw= throw +1;
+}
+printf("We need %d throw times to equal 1",throw+1);
+    
+
+ return 0;
+}
+ 
+ 
