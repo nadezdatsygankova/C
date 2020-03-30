@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// implement toLower one character
+
+char  myTolower(char c)
+{
+   if (c >='A' && c<='Z')
+     return c - 'A' +'a';
+   else 
+     return c;
+}
+// implement toUpper one character
+
+char myToUpper(char c)
+{
+  if (c >='a' && c <='z')
+    return c-'a'+'A';
+  else 
+     return c;  
+}
+
+
+void upper(char *str)
+{
+
+for(int i=0;str[i];++i)
+{
+
+str[i] = myToUpper(str[i]);
+
+}
+
+}
+
+void lower(char *str)
+{
+
+for(int i=0;str[i];++i)
+{
+
+str[i] = myTolower(str[i]);
+
+}
+
+}
+
+int main(void)
+{
+  char newc[]="Hello world";
+  upper(newc);
+  printf("%s",newc);
+  lower(newc);
+  printf("\n%s",newc);
+
+
+}
