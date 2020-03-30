@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// implement toLower one character
+
+char  Mytolower(char c)
+{
+   if (c >='A' && c<='Z')
+     return c - 'A' +'a';
+   else 
+     return c;
+}
+// implement toUpper one character
+
+char myToUpper(char c)
+{
+  if (c >='a' && c <='z')
+    return c-'a'+'A';
+  else 
+     return c;  
+}
