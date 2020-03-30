@@ -1,0 +1,110 @@
+
+Postfix:
+var +++ or var+=1
+var--  or var-=1
+
+Prefix:
+
+++var
+--var
+
+if a =a+1 > a+=1 > a++
+
+you can use 
+a=10;
+printf("%d\n,a++)    //10
+printf("%d\n,a)   //11
+
+if a--  //10
+        //9
+
+Prefix- reverser order
+before evaluating
+
+int a=10
+ptintf("%d\n",++a)  //11
+
+------------------
+
+a=0;
+while(a<10)
+  printf("%d,a++)  //0123456789
+  
+  
+  //another 
+a=0;
+while(a<10)
+  printf("%d,++a)  //12345678910 //ecvivalent first a=a+1 after that print
+  
+-------------------
+
+b=c+a++  > b= c+a > a=a+1
+b = c + --a; > a = a-1 > b = c + a
+
+
+------------------
+
+a=10;
+while (a--)
+   printf("%d',a);  //9876543210
+   
+-------
+
+a=10;
+while (--a)
+   printf("%d',a);  //987654321
+   
+-----
+int myStrlen(char*str)
+{
+   int i =0;
+   while (str[i] !=0)
+   i++;
+   return i;
+ }  
+
+int main(void)
+{
+   char test[]="Hello world!";
+   printf("length =%d,myStrlen(test));
+   
+   
+   //short way for this function 
+   
+   int myStrlen(char*str)
+{
+   int i =0;
+   while (str[i++])
+   return i-1;
+ }  
+
+int main(void)
+{
+   char test[]="Hello world!";
+   printf("length =%d,myStrlen(test));
+   
+------------------------
+a=10;
+while(a++) > while(10) > a=a+1
+------------
+void myPuts(char*str)
+{
+   int i =0;
+   while(str[i])
+    {
+      printf("%c",str[i]);
+      i++;
+    }
+}
+
+//short 
+
+void myPuts(char*str)
+{
+   int i =0;
+   while(str[i])
+    {
+      printf("%c",str[i++]);
+      
+    }
+}
