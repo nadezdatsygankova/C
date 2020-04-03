@@ -38,4 +38,30 @@ int main()
         
      }
 
+//version 2
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+  int number,divisor;
+  divisor =0;
+  int i,j;
+  printf("Enter a positive number:");
+  scanf("%d",&number);
+for (j=2;j<=number;j++)
+{
+  for (i=1;i <= j;i++)
+  {
+      if (j%i == 0)
+      {
+        divisor= divisor+1;
+      }
+  }
+if (divisor == 2)
+  {
+   printf("%d ",j);
+  } 
+divisor =0;  
+}
 
+}
