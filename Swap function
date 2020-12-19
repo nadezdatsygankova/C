@@ -1,0 +1,10 @@
+//swap function for int
+
+
+void swap(int* a, int* b) // change 1- we need proper pointer daratypes
+{
+    int temp;
+    temp = *a;
+    *a = *b ;
+    *b = temp;
+}
