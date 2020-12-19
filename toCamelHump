@@ -1,0 +1,26 @@
+void toCamelHump(char str[])
+{
+    int i=0;
+    while(str[i])
+    {
+        if (str[i]>='a' && str[i]<='z')
+            str[i]=str[i]-'a'+'A';
+        else if
+            (str[i]>='A' && str[i]<='Z')
+            str[i] = str[i]-'A'+'a';
+        else
+                str[i] =str[i];
+      i++;
+    }
+}
+
+int main()
+{
+
+  char name3[35] ="Hello World";
+  
+   toCamelHump(name3);
+   printf("%s",name3);
+
+ return 0;
+}
